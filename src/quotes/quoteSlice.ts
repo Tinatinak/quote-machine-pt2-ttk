@@ -31,6 +31,14 @@ export const quoteSlice = createSlice({
         return { payload: { author, text } };
       },
     },
+    addBatch: {
+      reducer: (state, action: PayloadAction<Quote[]>) => {
+        state.quotes = [...state.quotes, ...action.payload];
+      },
+      prepare: (quotes: Quote[]) => {
+        return { payload: quotes };
+      },
+    },
   },
 });
 export const quoteActions = quoteSlice.actions;
