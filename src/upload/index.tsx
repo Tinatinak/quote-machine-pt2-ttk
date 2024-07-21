@@ -8,12 +8,12 @@ export default function Upload() {
   const parse = () => {
     console.log("file", file);
 
-    const fileReader = new FileReader();
-    fileReader.readAsText(file, "UTF-8");
-    fileReader.onload = (e) => {
-      const json = JSON.parse(e.target.result);
-      console.log(json);
-    };
+    // const fileReader = new FileReader();
+    // fileReader.readAsText(file, "UTF-8");
+    // fileReader.onload = (e) => {
+    //   const json = JSON.parse(e.target.result);
+    //   console.log(json);
+    // };
   };
   const onFileSelect = (e: any) => {
     e.target.files && e.target.files.length > 0 && setFile(e.target.files[0]);
