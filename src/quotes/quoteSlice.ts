@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { initialQuotes } from "./data";
+import { initialQuotes, Quote } from "./data";
 
 interface QuotesState {
-  quotes: Array<any>;
+  quotes: Array<Quote>;
   currentQuote: number;
 }
 
@@ -17,11 +17,19 @@ export const quoteSlice = createSlice({
   initialState,
   reducers: {
     switch(state) {
-      state.currentQuote = Math.floor(Math.random() * initialQuotes.length);
+      state.currentQuote = Math.floor(Math.random() * state.quotes.length);
     },
     next(state, action: PayloadAction<number>) {
       state.currentQuote =
         (state.currentQuote + action.payload) % state.quotes.length;
+    },
+    add: {
+      reducer: (state, action: PayloadAction<Quote>) => {
+        state.quotes.push(action.payload);
+      },
+      prepare: (author: string, text: string) => {
+        return { payload: { author, text } };
+      },
     },
   },
 });
