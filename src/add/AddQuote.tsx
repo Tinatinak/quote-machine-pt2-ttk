@@ -1,10 +1,20 @@
 import { useState } from "react";
 import { useAppDispatch } from "../hooks";
 import { quoteActions } from "../quotes/quoteSlice";
+import {
+  Box,
+  Button,
+  TextField,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+} from "@mui/material";
 
 export default function AddQuote() {
   const [author, setAuthor] = useState("");
   const [text, setText] = useState("");
+  const [open, setOpen] = useState(false);
   const dispatch = useAppDispatch();
 
   const resetForm = () => {
@@ -15,34 +25,62 @@ export default function AddQuote() {
   const addQuote = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(quoteActions.add(author, text));
+    handleClose();
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
     resetForm();
+    setOpen(false);
   };
 
   return (
-    <form onSubmit={addQuote}>
-      <h2>Add a new quote</h2>
-      <label>
-        Author
-        <input
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-          type="text"
-        />
-      </label>
-      <label>
-        Text
-        <input
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          type="text"
-        />
-      </label>
+    <Box>
+      <Button variant="outlined" onClick={handleOpen}>
+        Add
+      </Button>
 
-      <div className="button">
-        <button className="btn btn_primary btn_rounded" type="submit">
-          Add
-        </button>
-      </div>
-    </form>
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Add a new quote</DialogTitle>
+        <form onSubmit={addQuote}>
+          <DialogContent>
+            <TextField
+              autoFocus
+              label="Author"
+              fullWidth
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+              type="text"
+            />
+            <TextField
+              label="Text"
+              sx={{ mt: 2 }}
+              fullWidth
+              multiline
+              rows={3}
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              type="text"
+            />
+          </DialogContent>
+          <DialogActions sx={{ mb: 2 }}>
+            <Button onClick={handleClose} color="primary">
+              Cancel
+            </Button>
+            <Button
+              variant="contained"
+              type="submit"
+              disabled={!author || !text}
+              color="primary"
+            >
+              Add
+            </Button>
+          </DialogActions>
+        </form>
+      </Dialog>
+    </Box>
   );
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { RootState } from "../store";
 import { quoteActions } from "./quoteSlice";
+import { Box, Button } from "@mui/material";
 
 export default function Quote() {
   const dispatch = useAppDispatch();
@@ -18,23 +19,21 @@ export default function Quote() {
   };
 
   return (
-    <div id="quote-box">
+    <Box id="quote-box">
       <h1 id="text">
         <span className="quote">“</span>
         {quotes[currentQuote].text}
         <span className="quote">“</span>
       </h1>
-      <h2 id="author">–{quotes[currentQuote].author}</h2>
-      <div className="button">
-        <button className="btn btn_primary btn_rounded" onClick={switchQuote}>
-          Switch
-        </button>
-      </div>
-      <div className="button">
-        <button className="btn btn_primary btn_rounded" onClick={nextQuote}>
+      <h2 id="author">– {quotes[currentQuote].author}</h2>
+      <Box className="buttons-row">
+        <Button variant="contained" onClick={nextQuote}>
           Next
-        </button>
-      </div>
-    </div>
+        </Button>
+        <Button variant="contained" onClick={switchQuote}>
+          Random
+        </Button>
+      </Box>
+    </Box>
   );
 }

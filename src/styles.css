@@ -2,15 +2,26 @@
   font-family: sans-serif;
   text-align: center;
 }
+
 html {
   font-size: 100%;
 }
 body {
   font-family: arial;
+  background: #fafafa;
+}
+
+.hidden {
+  display: none;
+}
+
+.buttons-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
 }
 
 #quote-box {
-  background: #fafafa;
   margin: auto;
   text-align: center;
   padding: 30px;
@@ -52,7 +63,9 @@ form input {
 }
 
 form {
-  margin: 1.25rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 form .btn {
@@ -116,6 +129,10 @@ tr > td {
 
 .btn.btn_primary:hover {
   background: #1ed760;
+}
+
+.btn.btn_primary:disabled {
+  background: #c1c1c1;
 }
 
 .btn.btn_rounded {
