@@ -1,0 +1,144 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+html {
+  font-size: 100%;
+}
+body {
+  font-family: arial;
+}
+
+#quote-box {
+  background: #fafafa;
+  margin: auto;
+  text-align: center;
+  padding: 30px;
+}
+
+#author {
+  font-family: Times New Roman;
+  color: #ff9db0;
+  font-size: 1.25rem;
+  font-weight: normal;
+  margin: 5px 0 20px 0;
+}
+
+.quote {
+  color: #1ed760;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+#text {
+  font-family: Times New Roman;
+  font-style: italic;
+  margin: 10px 0 0;
+  font-weight: normal;
+}
+
+input {
+  font-size: 1rem;
+  border: 1px solid #d9d9d9;
+  padding: 0.75rem 0.75rem;
+}
+
+form input:nth-child(2) {
+  border-left: 0;
+}
+
+form input {
+  margin-bottom: 0.5rem;
+}
+
+form {
+  margin: 1.25rem 0;
+}
+
+form .btn {
+  margin-top: 1rem;
+}
+
+table {
+  width: 100%;
+  text-align: left;
+  border-radius: 2px 2px 0 0;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+thead {
+  vertical-align: middle;
+}
+
+th {
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-align: left;
+  background: #fafafa;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.3s ease;
+  padding: 1rem 2rem;
+}
+
+td {
+  font-size: 0.75rem;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.3s;
+  padding: 0.5rem 2rem;
+}
+
+th:last-child,
+td:last-child {
+  text-align: right;
+  width: 100%;
+}
+
+tr > th,
+tr > td {
+  white-space: nowrap;
+}
+
+.btn {
+  font-size: 0.75rem;
+  transition: background 0.2s ease;
+  cursor: pointer;
+  border: 0;
+  text-align: center;
+  padding: 0.75rem 1.75rem;
+  margin: 10px;
+}
+
+.btn.btn_primary {
+  color: white;
+  background: #1db954;
+}
+
+.btn.btn_primary:hover {
+  background: #1ed760;
+}
+
+.btn.btn_rounded {
+  border-radius: 32px;
+}
+
+.btn.btn_secondary {
+  color: #1db954;
+  background-color: #fff;
+  border: 2px solid #1db954;
+  font-weight: 600;
+}
+
+.btn.btn_secondary:hover {
+  color: white;
+  background: #1db954;
+}
+
+.error {
+  color: red;
+}
+
+.container {
+  margin: auto;
+  max-width: 1312px;
+}
